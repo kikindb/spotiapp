@@ -1,3 +1,30 @@
-<p>
-  search works!
-</p>
+<div class="container top30">
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="buscar">Buscar Artista</label>
+
+        <input type="text" name="buscar-artista" id="buscar-artista" 
+          class="form-control" placeholder="Buscar..." aria-describedby="helpId"
+          (keyup)="buscarArtista()" [(ngModel)]="termino">
+
+        <small id="helpId" class="text-muted">Inserte un artista</small>
+      </div>
+    </div>
+
+    <div class="col-md-9" *ngIf="termino.length > 0">
+      <h1 class="text-capitalize">{{termino}}</h1>
+      <hr>
+      <!-- *ngFor="let artista of _spotify.artistas" -->
+      <div class="row">
+        <div class="col-md-3 text-center puntero" *ngFor="let artista of _spotify.artistas">
+          <img [src]="artista.images | sinfoto" alt="artista.name" class="img-thumbnail">
+          <p>{{artista.name}}</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
