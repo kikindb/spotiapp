@@ -1,9 +1,9 @@
 <div class="container top-30">
   <div class="row">
-    <div class="col-md-3">
-      <img class="img-thumbnail" [src]="artista.images[1].url" alt="">
+    <div class="col-md-3 col-sm-12 text-center">
+      <img class="img-thumbnail" [src]="artista.images | sinfoto" alt="">
     </div>
-    <div class="col-md-9 text-center">
+    <div class="col-md-9 col-sm-12 text-center">
       <h1>{{artista.name}}</h1>
       <input type="button" value="Regresar" class="btn btn-primary" [routerLink]="['/search']">
       <a [href]="artista.external_urls.spotify" class="btn btn-success">Ver en Spotify</a>
@@ -22,9 +22,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let top of _spotify.topTracks; let i = index" [attr.data-index]="i">
-          <th scope="row">{{i+1}}</th>
+          <th scope="row" class="align-middle">{{i+1}}</th>
           <td><img class="img-thumbnail" [src]="top.album.images[2].url" [alt]="top.album.name"></td>
-          <td>{{top.name}}</td>
+          <td class="align-middle">{{top.name}}</td>
         </tr>
       </tbody>
     </table>
