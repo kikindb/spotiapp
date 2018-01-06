@@ -18,6 +18,7 @@
           <th scope="col">#</th>
           <th scope="col">Imagen</th>
           <th scope="col">Nombre</th>
+          <th scope="col">Reproducir</th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +26,12 @@
           <th scope="row" class="align-middle">{{i+1}}</th>
           <td><img class="img-thumbnail" [src]="top.album.images[2].url" [alt]="top.album.name"></td>
           <td class="align-middle">{{top.name}}</td>
+          <td class="align-middle">
+            <audio controls>
+              <source [src]="top.preview_url" type="audio/ogg">
+            Tu navegador es muy antiguo.
+            </audio>
+          </td>
         </tr>
       </tbody>
     </table>
