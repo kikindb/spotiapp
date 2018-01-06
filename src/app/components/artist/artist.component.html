@@ -15,22 +15,25 @@
   <table class="table table-striped table-dark">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Imagen</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Reproducir</th>
+          <th class="text-center" scope="col">#</th>
+          <th class="text-center" scope="col">Imagen</th>
+          <th class="text-center" scope="col">Nombre</th>
+          <th class="text-center" scope="col">Popularidad</th>
+          <th class="text-center" scope="col">Muestra</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let top of _spotify.topTracks; let i = index" [attr.data-index]="i">
           <th scope="row" class="align-middle">{{i+1}}</th>
-          <td><img class="img-thumbnail" [src]="top.album.images[2].url" [alt]="top.album.name"></td>
-          <td class="align-middle">{{top.name}}</td>
-          <td class="align-middle">
-            <audio controls>
+          <td class="align-middle text-center"><img class="img-thumbnail" [src]="top.album.images[2].url" [alt]="top.album.name"></td>
+          <td class="align-middle text-center">{{top.name}}</td>
+          <td class="align-middle text-center">{{top.popularity}}%</td>
+          <td class="align-middle text-center">
+            <!--<audio controls>
               <source [src]="top.preview_url" type="audio/ogg">
             Tu navegador es muy antiguo.
-            </audio>
+            </audio>-->
+            <iframe [src]="top.uri | domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
           </td>
         </tr>
       </tbody>
